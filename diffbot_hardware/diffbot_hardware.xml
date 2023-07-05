@@ -1,0 +1,9 @@
+<library path="diffbot_hardware">
+  <class name="diffbot_hardware/DiffbotHardwareSystem"
+         type="diffbot_hardware::DiffbotHardwareSystem"
+         base_class_type="hardware_interface::SystemInterface">
+    <description>
+      Add description
+    </description>
+  </class>
+</library>

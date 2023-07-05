@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+<!--
+Copied and modified from ros2 control demos example:
+https://github.com/ros-controls/ros2_control_demos/blob/foxy/ros2_control_demo_description/diffbot_description/ros2_control/diffbot_system.ros2_control.xacro
+https://github.com/ros-controls/ros2_control_demos/blob/foxy/ros2_control_demo_description/rrbot_description/ros2_control/rrbot_system_position_only.ros2_control.xacro
+-->
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+  <xacro:macro name="diffbot_control_system" >
+
+    <ros2_control name="diffbot_control_system" type="system">      
+      <hardware>
+        <plugin>diffbot_hardware/DiffbotHardwareSystem</plugin>
+        <param name="opencr_id">200</param>
+        <param name="opencr_usb_port">/dev/ttyACM0</param>
+        <param name="opencr_baud_rate">1000000</param>
+      </hardware>
+
+      <joint name="wheel_left_joint">
+        <command_interface name="velocity">
+          <param name="min">-24.5</param>
+          <param name="max">24.5</param>
+        </command_interface>
+        <state_interface name="position">
+          <param name="initial_value">0.0</param>
+        </state_interface>
+        <state_interface name="velocity">
+          <param name="initial_value">0.0</param>
+        </state_interface>
+      </joint>
+      <joint name="wheel_right_joint">
+        <command_interface name="velocity">
+          <param name="min">-24.5</param>
+          <param name="max">24.5</param>
+        </command_interface>
+        <state_interface name="position">
+          <param name="initial_value">0.0</param>
+        </state_interface>
+        <state_interface name="velocity">
+          <param name="initial_value">0.0</param>
+        </state_interface>
+      </joint>
+
+    </ros2_control>
+  </xacro:macro>
+</robot>
